@@ -1,14 +1,28 @@
 --Code for player
-require("utilsFx")
 local maxSpeed = 25
 
 function newPlayer()
+	--[[
 	local self = display.newImage( "player.png", 
 									display.contentWidth / 2,
 									display.contentHeight )
-	self:scale( .5, .5 )
+									]]
+	local self = display.newGroup()
+	-- set texture player
+	local compositePaint = {
+			    type="composite",
+			    paint1={ type="image", filename="glowPlayer.png" },
+			    paint2={ type="image", filename="player.png" }
+			}
+	local barTexture = display.newRect( 0, 0, 512, 170 )
+	barTexture.fill = compositePaint -- Apply the composite paint as the object's fill
+	barTexture.fill.effect = "composite.add" 	-- Set a composite blend as the fill effect
+
+	self:insert(barTexture)
+	self.x = display.contentWidth / 2
+	self.y = display.contentHeight 
+	self:scale( .35, .35 )
 	self.velocity = 0
-	bloomFx(self)
 
 	function self:updateLocation() --run per frame, update location player
 		self.x = self.x + self.velocity --add velocity
