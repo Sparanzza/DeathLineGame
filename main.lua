@@ -13,7 +13,7 @@ DEBUG = true
 require ("utilsFx")
 require("Player") --add player file
 require("GameTrack") -- add game track file
---require("Background") -- add background file
+require("Background") -- add background file
 --require("Foreground") --add foreground file
 --require("TitleScreen") -- add Title Screen file
 require("Utilities") -- add utilities file
@@ -30,6 +30,7 @@ function printd(text)
 	end
 end
 function load() --starting function, load object
+	background = newBackground()
 	printd( "tamaño pantalla X " .. display.contentWidth )
 	printd( "tamaño pantalla Y " .. display.contentHeight)
 	printd("loading game ...")
