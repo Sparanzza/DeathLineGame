@@ -1,11 +1,18 @@
--- Utilities.lua code
+
+
+function swap(a,b)
+	local temp = b
+	b = a
+	a = temp
+	return a, b
+end
 
 -- Bresenham's line algorithm
 function lineData(x0, y0, x1, y1)
 	local lineArray = {}
-	local step = false
-	if math.abs(y1 - y0) > math.abs(x1 - x0) then step = true end
-	if step then
+	local steep = false
+	if math.abs(y1 - y0) > math.abs(x1 - x0) then steep = true end
+	if steep then
 	        x0, y0 = swap(x0, y0)
 	        x1, y1 = swap(x1, y1)
 	end            
@@ -22,7 +29,7 @@ function lineData(x0, y0, x1, y1)
 	if y0 < y1 then ystep = 1 else ystep = -1 end
 	for x=x0,x1 do
 	        lineArray[#lineArray+1] = {}
-	if step then
+	if steep then
 	        lineArray[#lineArray].y = x
 	        lineArray[#lineArray].x = y
 	 else

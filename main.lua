@@ -30,9 +30,10 @@ function printd(text)
 	end
 end
 function load() --starting function, load object
-
+	printd( "tamaño pantalla X " .. display.contentWidth )
+	printd( "tamaño pantalla Y " .. display.contentHeight)
 	printd("loading game ...")
-	printd("creating level")
+	printd("creating level ...")
 	level = newGameTrack(gameLength)
 	printd("creating player ...")
 	player = newPlayer() -- create new Player
@@ -52,6 +53,8 @@ function newGame( )
 	isActive = false --set active whether the game is false
 	--player:updateLocation() --update player location
 	player:reset() --reset player
+	level:addLines() --add lines to the level
+	level:start( ) --start the level
 
 end
 
