@@ -14,7 +14,7 @@ require ("utilsFx")
 require("Player") --add player file
 require("GameTrack") -- add game track file
 require("Background") -- add background file
---require("Foreground") --add foreground file
+require("Foreground") --add foreground file
 --require("TitleScreen") -- add Title Screen file
 require("Utilities") -- add utilities file
 
@@ -38,6 +38,7 @@ function load() --starting function, load object
 	level = newGameTrack(gameLength)
 	printd("creating player ...")
 	player = newPlayer() -- create new Player
+	foreground = newForeground()
 	printd("starting game ...")
 	newGame() --start the game
 	printd("end game ...")
@@ -47,6 +48,7 @@ function updateEngine( event )
 end
 
 function newGame( )
+
 	gameFxGrp:insert(player)
 	gameFxGrp:insert(level)
 	socre = 0 --reset score
@@ -55,6 +57,7 @@ function newGame( )
 	player:reset() --reset player
 	level:addLines() --add lines to the level
 	level:start( ) --start the level
+	foreground:updateUI()
 
 end
 
