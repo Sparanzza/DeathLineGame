@@ -1,4 +1,20 @@
 
+function round(num, places) -- rounds number
+	local mult = 10^(places)
+	return math.floor(num * mult +.5) / mult
+end
+
+function distanceFrom(x1,y1,x2,y2) -- distance formula
+   return math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
+end
+
+function clamp( num, low, high ) -- clamps num between low and high
+	if (num < low ) then return low end
+	if (num > high ) then return high end
+	return num
+end
+
+
 function swap(a,b)
 	local temp = b
 	b = a
