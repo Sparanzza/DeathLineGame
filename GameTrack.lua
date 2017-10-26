@@ -23,7 +23,7 @@ function newGameTrack(length)
 		    type = "image",
 		    filename = "sphereData.png"
 		}
-		self.object[1] = display.newCircle( display.contentWidth / 2, display.contentHeight /2, 48 )
+		self.object[1] = display.newCircle( display.contentWidth / 2, display.contentHeight /2, 36 )
 		self.object[1].fill = paint
 		self:insert(self.object[1])	
 
@@ -44,7 +44,7 @@ function newGameTrack(length)
 			local groupDataBall = display.newGroup() --group to nest sphere and text coordinate
 			groupDataBall.x = xLocation
 			groupDataBall.y = yLocation
-			local mySphere = display.newCircle( groupDataBall , 0,0,16, "right")
+			local mySphere = display.newCircle( groupDataBall , 0,0,16)
 			local optionsTxt = 
 						{
 							parent = groupDataBall,
