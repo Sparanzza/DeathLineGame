@@ -48,8 +48,7 @@ end
 
 function newGame( )
 	gameFxGrp:insert(player)
-	--gameFxGrp:insert(level)
-
+	gameFxGrp:insert(level)
 	socre = 0 --reset score
 	isActive = false --set active whether the game is false
 	--player:updateLocation() --update player location
