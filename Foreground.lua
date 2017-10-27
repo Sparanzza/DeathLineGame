@@ -76,17 +76,19 @@ end
 function ButtonEvent( self ,event )
     if event.phase == "began" then
     	display.getCurrentStage():setFocus( event.target )
-    	leftIsHeld = true
     	if self.id == "left_id" then
     		-- left
     		print( "left" )
+    		leftIsHeld = true
     	elseif self.id == "right_id" then
     		-- right
     		print("right")
+    		rightIsHeld = true
     	end
     elseif event.phase == "ended" or event.phase == "cancelled" then
     	display.getCurrentStage():setFocus( nil )
     	leftIsHeld = false
+    	rightIsHeld = false
     end
 end
 
